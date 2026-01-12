@@ -10,8 +10,8 @@
     "phase": "offers_received",
     "hotels": ["Grand Hotel Zurich", "Hotel Schweizerhof"],
     "notes": "Client prefers city center location.",
-    "createdAt": "2026-01-10T09:00:00Z",
-    "updatedAt": "2026-01-12T14:30:00Z"
+    "createdAt": "2026-01-09T09:00:00Z",
+    "updatedAt": "2026-01-11T14:30:00Z"
   },
   {
     "id": "INQ-2026-0035",
@@ -24,8 +24,8 @@
     "phase": "new",
     "hotels": [],
     "notes": "Requires vegetarian options for 20% of guests. High VIP presence.",
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-01-15T10:00:00Z"
+    "createdAt": "2026-01-10T10:00:00Z",
+    "updatedAt": "2026-01-10T10:00:00Z"
   },
   {
     "id": "INQ-2026-0036",
@@ -66,8 +66,8 @@
     "phase": "new",
     "hotels": [],
     "notes": "Low budget, prefers budget hotels near train station.",
-    "createdAt": "2026-01-18T16:20:00Z",
-    "updatedAt": "2026-01-18T16:20:00Z"
+    "createdAt": "2026-01-11T16:20:00Z",
+    "updatedAt": "2026-01-11T16:20:00Z"
   },
   {
     "id": "INQ-2026-0039",
@@ -80,8 +80,8 @@
     "phase": "sent_to_hotels",
     "hotels": ["The Dolder Grand", "Baur au Lac"],
     "notes": "Luxury accommodation required for board members.",
-    "createdAt": "2026-01-12T11:00:00Z",
-    "updatedAt": "2026-01-14T15:30:00Z"
+    "createdAt": "2026-01-10T11:00:00Z",
+    "updatedAt": "2026-01-11T15:30:00Z"
   },
   {
     "id": "INQ-2026-0040",
@@ -95,7 +95,7 @@
     "hotels": ["Radisson Blu", "Mövenpick Hotel"],
     "notes": "Outdoor activities nearby are a plus.",
     "createdAt": "2026-01-09T09:15:00Z",
-    "updatedAt": "2026-01-16T13:45:00Z"
+    "updatedAt": "2026-01-11T13:45:00Z"
   },
   {
     "id": "INQ-2026-0041",
@@ -122,8 +122,8 @@
     "phase": "new",
     "hotels": [],
     "notes": "Need 3 breakout rooms.",
-    "createdAt": "2026-01-19T08:00:00Z",
-    "updatedAt": "2026-01-19T08:00:00Z"
+    "createdAt": "2026-01-11T08:00:00Z",
+    "updatedAt": "2026-01-11T08:00:00Z"
   },
   {
     "id": "INQ-2026-0043",
@@ -136,7 +136,7 @@
     "phase": "sent_to_hotels",
     "hotels": ["Savoy Hotel", "Widder Hotel"],
     "notes": "Valentine's day theme.",
-    "createdAt": "2026-01-14T13:00:00Z",
-    "updatedAt": "2026-01-15T09:00:00Z"
+    "createdAt": "2026-01-10T13:00:00Z",
+    "updatedAt": "2026-01-11T09:00:00Z"
   }
 ]

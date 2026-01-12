@@ -24,3 +24,8 @@ export interface UseInquiryStore {
   inquiries: Inquiry[];
   fetchingInquiries: () => Promise<void>;
 }
+
+
+export interface InquiryProps {
+  inquiry: Inquiry;
+}

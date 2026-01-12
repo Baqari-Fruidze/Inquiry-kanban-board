@@ -14,15 +14,20 @@ export default function Home() {
   }, []);
   return (
     <div className="w-full min-h-screen bg-gray-900 flex justify-center items-start ">
-      <main className="min-w-3xl max-w-screen-2xl bg-gradient-to-r from-purple-700 to-pink-500 min-h-screen p-6 shadow-2xl flex flex-col">
+      <main className="min-w-3xl max-w-screen-3xl bg-gradient-to-r from-purple-700 to-pink-500 min-h-screen p-6 shadow-2xl flex flex-col">
         <header>
           <Header />
         </header>
         <section>
           <span> aq iqneba filtraciis funqciebi</span>
         </section>
-        <section>{COLUMNS.map((column) => (
-          <Column key={column.id} title={column.title} inquiries={inquiries.filter((inquiry) => inquiry.phase === column.id)} />
+        <section className="flex justify-between overflow-x-auto gap-4">{COLUMNS.map((column) => (
+          <Column 
+            key={column.id} 
+            title={column.title} 
+            inquiries={inquiries.filter((inquiry) => inquiry.phase === column.id)} 
+            bgColor={column.bgColor}
+          />
         ))}</section>
       </main>
     </div>
