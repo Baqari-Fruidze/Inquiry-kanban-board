@@ -18,3 +18,9 @@ export interface Inquiry {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface UseInquiryStore {
+  isLoading: boolean;
+  inquiries: Inquiry[];
+  fetchingInquiries: () => Promise<void>;
+}
