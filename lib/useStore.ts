@@ -1,8 +1,7 @@
 import { UseInquiryStore, InquiryPhase } from "@/types/inquiryTypes";
-import { UsemodalTypes } from "@/types/useStoreTypes";
+import { UsemodalTypes, UseNoteStore, UseFilterStore } from "@/types/useStoreTypes";
 import { create } from "zustand";
 import { getInquiries, updateInquiryPhase, updateInquiryNotes } from "./services";
-import { UseNoteStore } from "@/types/useStoreTypes";
 
 // modal store
 export const useModalStore = create<UsemodalTypes>((set) => ({
@@ -62,6 +61,7 @@ export const useInquiryStore = create<UseInquiryStore>((set) => ({
 
     try {
       await updateInquiryNotes(id, notes);
+     //   set({ inquiries: previousInquiries });
     } catch (err) {
       console.log(err);
       set({ inquiries: previousInquiries });
@@ -74,5 +74,25 @@ export const useInquiryStore = create<UseInquiryStore>((set) => ({
 export const useNoteStore = create<UseNoteStore>((set)=>({
   note:"",
   setNote:(note:string)=>set({note})
-} ))
+}));
 
+// filter store
+export const useFilterStore = create<UseFilterStore>((set, get) => ({
+  searchQuery: "",
+  dateFrom: null,
+  dateTo: null,
+  minValue: 0,
+  setSearchQuery: (query: string) => set({ searchQuery: query }),
+  setDateFrom: (date: string | null) => set({ dateFrom: date }),
+  setDateTo: (date: string | null) => set({ dateTo: date }),
+  setMinValue: (value: number) => set({ minValue: value }),
+  clearFilters: () => set({ searchQuery: "", dateFrom: null, dateTo: null, minValue: 0 }),
+  getActiveFilterCount: () => {
+    const state = get();
+    let count = 0;
+    if (state.searchQuery) count++;
+    if (state.dateFrom || state.dateTo) count++;
+    if (state.minValue > 0) count++;
+    return count;
+  },
+}));

@@ -10,3 +10,15 @@ export interface UseNoteStore {
   setNote: (note: string) => void;
 }
 
+export interface UseFilterStore {
+  searchQuery: string;
+  dateFrom: string | null;
+  dateTo: string | null;
+  minValue: number;
+  setSearchQuery: (query: string) => void;
+  setDateFrom: (date: string | null) => void;
+  setDateTo: (date: string | null) => void;
+  setMinValue: (value: number) => void;
+  clearFilters: () => void;
+  getActiveFilterCount: () => number;
+}
