@@ -19,15 +19,10 @@ const dif = Math.floor((currentDate - oldDate) / divider)
 return dif 
  }
 
- // format date to show
-// const Olddate = Date.parse("2026-01-10T09:00:00Z");
-// console.log(Olddate);
 
-// const currentDATE = Date.now();
-// console.log(currentDATE);
 
 // const dif = parseInt((currentDATE - Olddate) / 86400000);
-// console.log(dif);  
+
    export const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       month: "short",

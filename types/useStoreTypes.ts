@@ -15,10 +15,11 @@ export interface UseFilterStore {
   dateFrom: string | null;
   dateTo: string | null;
   minValue: number;
+  count: number;
   setSearchQuery: (query: string) => void;
   setDateFrom: (date: string | null) => void;
   setDateTo: (date: string | null) => void;
   setMinValue: (value: number) => void;
   clearFilters: () => void;
-  getActiveFilterCount: () => number;
+  setCount: (count: number) => void;
 }

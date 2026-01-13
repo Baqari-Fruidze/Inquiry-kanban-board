@@ -28,7 +28,7 @@
     "hotels": [],
     "notes": "Requires vegetarian options for 20% of guests. High VIP presence......",
     "createdAt": "2026-01-10T10:00:00Z",
-    "updatedAt": "2026-01-12T20:34:56.645Z"
+    "updatedAt": "2026-01-13T13:33:38.513Z"
   },
   {
     "id": "INQ-2026-0036",
@@ -71,11 +71,11 @@
     "eventDate": "2026-03-05",
     "guestCount": 25,
     "potentialValue": 8500,
-    "phase": "new",
+    "phase": "sent_to_hotels",
     "hotels": [],
     "notes": "Low budget, prefers budget hotels near train station.",
     "createdAt": "2026-01-11T16:20:00Z",
-    "updatedAt": "2026-01-11T16:20:00Z"
+    "updatedAt": "2026-01-13T16:27:34.485Z"
   },
   {
     "id": "INQ-2026-0039",
@@ -102,14 +102,14 @@
     "eventDate": "2026-07-01",
     "guestCount": 80,
     "potentialValue": 22000,
-    "phase": "offers_received",
+    "phase": "new",
     "hotels": [
       "Radisson Blu",
       "Mövenpick Hotel"
     ],
     "notes": "Outdoor activities nearby are a plus.",
     "createdAt": "2026-01-09T09:15:00Z",
-    "updatedAt": "2026-01-11T13:45:00Z"
+    "updatedAt": "2026-01-13T13:36:54.586Z"
   },
   {
     "id": "INQ-2026-0041",
@@ -140,7 +140,7 @@
     "hotels": [],
     "notes": "Need 3 breakout rooms.",
     "createdAt": "2026-01-11T08:00:00Z",
-    "updatedAt": "2026-01-11T08:00:00Z"
+    "updatedAt": "2026-01-13T13:33:37.003Z"
   },
   {
     "id": "INQ-2026-0043",
@@ -157,6 +157,6 @@
     ],
     "notes": "Valentine's day theme.",
     "createdAt": "2026-01-10T13:00:00Z",
-    "updatedAt": "2026-01-11T09:00:00Z"
+    "updatedAt": "2026-01-13T16:27:39.496Z"
   }
 ]

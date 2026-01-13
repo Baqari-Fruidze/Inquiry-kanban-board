@@ -13,17 +13,32 @@ export default function FilterBar() {
   const setDateTo = useFilterStore((state) => state.setDateTo);
   const setMinValue = useFilterStore((state) => state.setMinValue);
   const clearFilters = useFilterStore((state) => state.clearFilters);
-  const getActiveFilterCount = useFilterStore((state) => state.getActiveFilterCount);
+ const count = useFilterStore((state) => state.count);
 
   const [localSearch, setLocalSearch] = useState(searchQuery);
-  const activeCount = getActiveFilterCount();
+ 
 
   // Sync localSearch when searchQuery changes externally (from URL)
-  useEffect(() => {
-    setLocalSearch(searchQuery);
-  }, [searchQuery]);
+  // useEffect(() => {
+  //   setLocalSearch(searchQuery);
+  // }, [searchQuery]);
 
-  // Debounced search - only update store if localSearch differs
+  //   useEffect(() => {
+  //   if (localSearch === searchQuery) return;
+  //   setTimeout(() => {
+  //     setSearchQuery(localSearch);
+  //   }, 300);
+   
+  // }, [localSearch, searchQuery, setSearchQuery]);
+
+  // const handleClearFilters = () => {
+  //   setLocalSearch("");
+  //   clearFilters();
+  // };  
+
+ //    works because of timer reset  
+
+ //    
   useEffect(() => {
     if (localSearch === searchQuery) return;
     const timer = setTimeout(() => {
@@ -85,14 +100,14 @@ export default function FilterBar() {
         {/* Clear Filters Button */}
         <button
           onClick={handleClearFilters}
-          disabled={activeCount === 0}
+          disabled={count  === 0}
           className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors"
         >
           <X className="w-4 h-4" />
           Clear
-          {activeCount > 0 && (
+          {count > 0 && (
             <span className="bg-purple-500 text-white text-xs px-2 py-0.5 rounded-full">
-              {activeCount}
+              {count}
             </span>
           )}
         </button>

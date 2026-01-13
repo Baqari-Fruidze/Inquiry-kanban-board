@@ -1,12 +1,15 @@
 import { Inquiry } from "@/types/inquiryTypes";
 import { sum } from "@/lib/utils";
 import InquiryCard from "./InquiryCard";
+import { Droppable } from "@hello-pangea/dnd";
 
 export default function Column({ 
+  columnId,
   title, 
   inquiries, 
   bgColor 
 }: { 
+  columnId: string;
   title: string; 
   inquiries: Inquiry[]; 
   bgColor: string;
@@ -18,11 +21,20 @@ export default function Column({
         <h3>{inquiries.length} inquiries</h3>
         <span>${sum(inquiries).toLocaleString()}</span>
       </div>
-      <div>
-        {inquiries.map((inquiry) => (
-          <InquiryCard key={inquiry.id} inquiry={inquiry} />
-        ))}
-      </div>
+      <Droppable droppableId={columnId}>
+        {(provided) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className="min-h-[200px]"
+          >
+            {inquiries.map((inquiry, index) => (
+              <InquiryCard key={inquiry.id} inquiry={inquiry} index={index} />
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     </div>
   );
 }

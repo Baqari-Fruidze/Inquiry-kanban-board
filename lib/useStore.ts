@@ -63,7 +63,7 @@ export const useInquiryStore = create<UseInquiryStore>((set) => ({
       await updateInquiryNotes(id, notes);
      //   set({ inquiries: previousInquiries });
     } catch (err) {
-      console.log(err);
+    
       set({ inquiries: previousInquiries });
     }
   },
@@ -77,22 +77,17 @@ export const useNoteStore = create<UseNoteStore>((set)=>({
 }));
 
 // filter store
-export const useFilterStore = create<UseFilterStore>((set, get) => ({
+export const useFilterStore = create<UseFilterStore>((set) => ({
   searchQuery: "",
   dateFrom: null,
   dateTo: null,
   minValue: 0,
+  count:0,
   setSearchQuery: (query: string) => set({ searchQuery: query }),
   setDateFrom: (date: string | null) => set({ dateFrom: date }),
   setDateTo: (date: string | null) => set({ dateTo: date }),
   setMinValue: (value: number) => set({ minValue: value }),
   clearFilters: () => set({ searchQuery: "", dateFrom: null, dateTo: null, minValue: 0 }),
-  getActiveFilterCount: () => {
-    const state = get();
-    let count = 0;
-    if (state.searchQuery) count++;
-    if (state.dateFrom || state.dateTo) count++;
-    if (state.minValue > 0) count++;
-    return count;
-  },
+  setCount: (count: number) => set({ count }),
+ 
 }));

@@ -6,8 +6,9 @@ import { InquiryProps } from "@/types/inquiryTypes";
 import { formatDate } from "@/lib/utils";
 import { getPhaseLabel } from "@/lib/utils";
 import { useModalStore } from "@/lib/useStore";
+import { Draggable } from "@hello-pangea/dnd";
 
-export default function InquiryCard({ inquiry }: InquiryProps) {
+export default function InquiryCard({ inquiry, index }: InquiryProps & { index: number }) {
   const daysSinceCreated = countDayDifference(inquiry.createdAt);
   const isHighValue = inquiry.potentialValue > 50000;
   const phaseColor = PHASE_COLORS[inquiry.phase];
@@ -18,10 +19,15 @@ export default function InquiryCard({ inquiry }: InquiryProps) {
   };
 
   return (
-    <div 
-      onClick={handleClick}
-      className="bg-white rounded-lg shadow-md p-4 mb-3 hover:shadow-lg transition-shadow cursor-pointer"
-    >
+    <Draggable draggableId={inquiry.id} index={index}>
+      {(provided, snapshot) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          onClick={handleClick}
+          className={`bg-white rounded-lg shadow-md p-4 mb-3 hover:shadow-lg transition-shadow cursor-pointer ${snapshot.isDragging ? 'shadow-xl ring-2 ring-purple-400' : ''}`}
+        >
       <div className="flex items-start justify-between mb-3">
         <h3 className="font-semibold text-gray-900 text-base flex-1">
           {inquiry.clientName}
@@ -61,6 +67,8 @@ export default function InquiryCard({ inquiry }: InquiryProps) {
           ago
         </span>
       </div>
-    </div>
+        </div>
+      )}
+    </Draggable>
   );
 }
