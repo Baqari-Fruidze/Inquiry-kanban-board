@@ -8,7 +8,10 @@
     "guestCount": 120,
     "potentialValue": 48500,
     "phase": "offers_received",
-    "hotels": ["Grand Hotel Zurich", "Hotel Schweizerhof"],
+    "hotels": [
+      "Grand Hotel Zurich",
+      "Hotel Schweizerhof"
+    ],
     "notes": "Client prefers city center location.",
     "createdAt": "2026-01-09T09:00:00Z",
     "updatedAt": "2026-01-11T14:30:00Z"
@@ -23,9 +26,9 @@
     "potentialValue": 85000,
     "phase": "new",
     "hotels": [],
-    "notes": "Requires vegetarian options for 20% of guests. High VIP presence.",
+    "notes": "Requires vegetarian options for 20% of guests. High VIP presence......",
     "createdAt": "2026-01-10T10:00:00Z",
-    "updatedAt": "2026-01-10T10:00:00Z"
+    "updatedAt": "2026-01-12T20:34:56.645Z"
   },
   {
     "id": "INQ-2026-0036",
@@ -35,11 +38,13 @@
     "eventDate": "2026-02-28",
     "guestCount": 45,
     "potentialValue": 12000,
-    "phase": "sent_to_hotels",
-    "hotels": ["Park Hyatt Zurich"],
+    "phase": "offers_received",
+    "hotels": [
+      "Park Hyatt Zurich"
+    ],
     "notes": "Need a quiet room with advanced AV equipment.",
     "createdAt": "2026-01-05T08:30:00Z",
-    "updatedAt": "2026-01-08T11:15:00Z"
+    "updatedAt": "2026-01-12T20:23:24.036Z"
   },
   {
     "id": "INQ-2026-0037",
@@ -50,7 +55,10 @@
     "guestCount": 500,
     "potentialValue": 150000,
     "phase": "completed",
-    "hotels": ["Beau-Rivage Palace", "Royal Savoy"],
+    "hotels": [
+      "Beau-Rivage Palace",
+      "Royal Savoy"
+    ],
     "notes": "Grand ballroom required. Confirmed booking.",
     "createdAt": "2025-12-20T14:00:00Z",
     "updatedAt": "2026-01-02T09:45:00Z"
@@ -78,7 +86,10 @@
     "guestCount": 15,
     "potentialValue": 55000,
     "phase": "sent_to_hotels",
-    "hotels": ["The Dolder Grand", "Baur au Lac"],
+    "hotels": [
+      "The Dolder Grand",
+      "Baur au Lac"
+    ],
     "notes": "Luxury accommodation required for board members.",
     "createdAt": "2026-01-10T11:00:00Z",
     "updatedAt": "2026-01-11T15:30:00Z"
@@ -92,7 +103,10 @@
     "guestCount": 80,
     "potentialValue": 22000,
     "phase": "offers_received",
-    "hotels": ["Radisson Blu", "Mövenpick Hotel"],
+    "hotels": [
+      "Radisson Blu",
+      "Mövenpick Hotel"
+    ],
     "notes": "Outdoor activities nearby are a plus.",
     "createdAt": "2026-01-09T09:15:00Z",
     "updatedAt": "2026-01-11T13:45:00Z"
@@ -106,7 +120,10 @@
     "guestCount": 200,
     "potentialValue": 65000,
     "phase": "completed",
-    "hotels": ["Hotel Zug", "City Garden Hotel"],
+    "hotels": [
+      "Hotel Zug",
+      "City Garden Hotel"
+    ],
     "notes": "Event was successful. Client wants to rebook for next year.",
     "createdAt": "2025-11-15T10:00:00Z",
     "updatedAt": "2026-01-10T11:00:00Z"
@@ -134,7 +151,10 @@
     "guestCount": 100,
     "potentialValue": 35000,
     "phase": "sent_to_hotels",
-    "hotels": ["Savoy Hotel", "Widder Hotel"],
+    "hotels": [
+      "Savoy Hotel",
+      "Widder Hotel"
+    ],
     "notes": "Valentine's day theme.",
     "createdAt": "2026-01-10T13:00:00Z",
     "updatedAt": "2026-01-11T09:00:00Z"

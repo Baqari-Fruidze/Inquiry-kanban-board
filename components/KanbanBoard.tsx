@@ -1,17 +1,22 @@
 "use client";
 import Header from "@/components/Header";
 import { useInquiryStore } from "@/lib/useStore";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { COLUMNS } from "../constants/constants";
 import Column from "./ui/Column";
-
+import InquiryModal from "./ui/InquiryModal";
 export default function Home() {
   const fetchingInquiries = useInquiryStore((state) => state.fetchingInquiries);
   const isLoading = useInquiryStore((state) => state.isLoading);
   const inquiries = useInquiryStore((state) => state.inquiries);
+  const hasFetched = useRef(false);
+
   useEffect(() => {
-    fetchingInquiries();
-  }, []);
+    if (!hasFetched.current) {
+      fetchingInquiries();
+      hasFetched.current = true;
+    }
+  }, [fetchingInquiries]);
   return (
     <div className="w-full min-h-screen bg-gray-900 flex justify-center items-start ">
       <main className="min-w-3xl max-w-screen-3xl bg-gradient-to-r from-purple-700 to-pink-500 min-h-screen p-6 shadow-2xl flex flex-col">
@@ -30,6 +35,7 @@ export default function Home() {
           />
         ))}</section>
       </main>
+      <InquiryModal />
     </div>
   );
 }

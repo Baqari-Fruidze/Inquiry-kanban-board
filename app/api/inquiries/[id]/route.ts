@@ -5,22 +5,24 @@ import path from "path";
 import { delay } from "@/lib/utils";
 import { Inquiry } from "@/types/inquiryTypes";
 
+export const dynamic = 'force-dynamic';
+
 const fakeDb = path.join(process.cwd(), "inquiries.json");
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   await delay(500);
 
   try {
     const body = await request.json();
-    const { phase } = body;
-    const id = params.id;
+    const { phase, notes } = body;
+    const { id } = await params;
 
-    if (!id || !phase) {
+    if (!id) {
       return NextResponse.json(
-        { error: "Missing id or phase" },
+        { error: "Missing id" },
         { status: 400 }
       );
     }
@@ -37,10 +39,15 @@ export async function PATCH(
       );
     }
 
-    inquiries[inquiryIndex].phase = phase;
+    if (phase !== undefined) {
+      inquiries[inquiryIndex].phase = phase;
+    }
+    if (notes !== undefined) {
+      inquiries[inquiryIndex].notes = notes;
+    }
     inquiries[inquiryIndex].updatedAt = new Date().toISOString();
 
-    await fs.writeFile(INQUIRIES_FILE, JSON.stringify(inquiries, null, 2));
+    await fs.writeFile(fakeDb, JSON.stringify(inquiries, null, 2));
 
     return NextResponse.json(inquiries[inquiryIndex]);
   } catch (error) {

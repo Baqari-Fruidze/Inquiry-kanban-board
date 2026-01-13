@@ -3,42 +3,25 @@ import { countDayDifference } from "@/lib/utils";
 import { PHASE_COLORS } from "@/constants/constants";
 import { Calendar, Users, TrendingUp } from "lucide-react";
 import { InquiryProps } from "@/types/inquiryTypes";
-
-
+import { formatDate } from "@/lib/utils";
+import { getPhaseLabel } from "@/lib/utils";
+import { useModalStore } from "@/lib/useStore";
 
 export default function InquiryCard({ inquiry }: InquiryProps) {
   const daysSinceCreated = countDayDifference(inquiry.createdAt);
   const isHighValue = inquiry.potentialValue > 50000;
-  const phaseColor = PHASE_COLORS[inquiry.phase] || "bg-gray-500";
+  const phaseColor = PHASE_COLORS[inquiry.phase];
+  const openModal = useModalStore((state) => state.openModal);
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 0,
-    }).format(value);
-  };
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
-  const getPhaseLabel = (phase: string) => {
-    const labels: Record<string, string> = {
-      new: "New",
-      sent_to_hotels: "Sent to Hotels",
-      offers_received: "Offers Received",
-      completed: "Completed",
-    };
-    return labels[phase] || phase;
+  const handleClick = () => {
+    openModal(inquiry.id);
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-3 hover:shadow-lg transition-shadow cursor-pointer">
+    <div 
+      onClick={handleClick}
+      className="bg-white rounded-lg shadow-md p-4 mb-3 hover:shadow-lg transition-shadow cursor-pointer"
+    >
       <div className="flex items-start justify-between mb-3">
         <h3 className="font-semibold text-gray-900 text-base flex-1">
           {inquiry.clientName}
@@ -67,7 +50,7 @@ export default function InquiryCard({ inquiry }: InquiryProps) {
       <div className="flex items-center justify-between pt-3 border-t border-gray-200">
         <div className="flex items-center">
           <span className="text-2xl font-bold text-gray-900">
-            {formatCurrency(inquiry.potentialValue)}
+            { "$" + inquiry.potentialValue.toLocaleString()}
           </span>
           {isHighValue && (
             <TrendingUp className="w-5 h-5 ml-2 text-green-600" />

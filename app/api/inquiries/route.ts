@@ -5,6 +5,8 @@ import path from "path";
 import { delay } from "@/lib/utils";
 import { Inquiry } from "@/types/inquiryTypes";
 
+export const dynamic = 'force-dynamic';
+
 const fakeDb = path.join(process.cwd(), "inquiries.json");
 
 export async function GET(request: NextRequest) {
@@ -14,7 +16,11 @@ export async function GET(request: NextRequest) {
     const jsonData = await fs.readFile(fakeDb, "utf8");
     const inquiries = JSON.parse(jsonData);
 
-    return NextResponse.json(inquiries);
+    return NextResponse.json(inquiries, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+      },
+    });
   } catch (error) {
     return NextResponse.json(
       { error: "Internal server error" },
